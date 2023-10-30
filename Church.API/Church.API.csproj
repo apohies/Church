@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.13" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Church.Application\Church.Application.csproj" />
+    <ProjectReference Include="..\Church.Core\Church.Core.csproj" />
+    <ProjectReference Include="..\Church.Repository\Church.Repository.csproj" />
+    <ProjectReference Include="..\Church.Security\Church.Security.csproj" />
+  </ItemGroup>
+
+</Project>
