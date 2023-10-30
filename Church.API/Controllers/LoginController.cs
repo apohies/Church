@@ -23,7 +23,7 @@ namespace Church.API.Controllers
        
         public  ActionResult<string> Generate(SecurityCommand entrada)
         {
-
+            // agregar referencia
                 var jwt = comand.GenerateToken(name: entrada.User, user: entrada.User);
 
                 return Ok(jwt);
