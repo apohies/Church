@@ -10,5 +10,7 @@ namespace Church.Core.Interfaces.Service
     public interface IUserService
     {
         public Task<List<Usermongo>> GetAllMongos();
+
+        public  Task<Usermongo> GetUserbiName(string name);
     }
 }

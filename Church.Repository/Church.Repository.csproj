@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Church.Core\Church.Core.csproj" />
+    <ProjectReference Include="..\Church.Security\Church.Security.csproj" />
   </ItemGroup>
 
 </Project>

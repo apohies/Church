@@ -25,5 +25,13 @@ namespace Church.API.Controllers
            return Ok(userService.GetAllMongos());
         }
 
+        [HttpGet("UserMongo/name")]
+
+
+        public async Task<IActionResult> UserbiName(string name)
+        {
+
+            return Ok(await userService.GetUserbiName(name));
+        }
     }
 }

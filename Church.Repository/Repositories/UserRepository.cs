@@ -25,5 +25,17 @@ namespace Church.Repository.Repositories
         {
             return await colletion.FindAsync(new BsonDocument()).Result.ToListAsync();
         }
+
+        public async Task<Usermongo> GetUserbiName(string name) {
+
+            return await colletion.FindAsync(new BsonDocument { { "username", name } }).Result.FirstAsync();
+        }
+
+        // metodo para buscar usuario por nombre  y contraseña
+        public async Task<Usermongo> GetUserbiNameAndPassword(string name, string password)
+        {
+
+            return await colletion.FindAsync(new BsonDocument { { "username", name }, { "password", password } }).Result.FirstAsync();
+        }
     }
 }

@@ -22,5 +22,10 @@ namespace Church.Application
         
         return await userRepository.GetAllMongos();
         }
+
+        public async Task<Usermongo> GetUserbiName(string name)
+        {
+            return await userRepository.GetUserbiName(name);
+        }
     }
 }

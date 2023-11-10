@@ -11,5 +11,7 @@ namespace Church.Core.Interfaces.Repository
     {
 
         public  Task<List<Usermongo>> GetAllMongos();
+
+        public Task<Usermongo> GetUserbiName(string name);
     }
 }
