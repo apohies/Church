@@ -36,7 +36,7 @@ namespace Church.API.Controllers
             if (user.email != "")
             {
 
-                var jwt = comand.GenerateToken(name: entrada.User, user: entrada.User);
+                var jwt = comand.GenerateToken(name: entrada.User, user: entrada.User , permision: user.permision);
 
                 return Ok(jwt);
 

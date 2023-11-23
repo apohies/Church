@@ -13,5 +13,7 @@ namespace Church.Security
         public DateTime fecha_creacion { get; set; }
 
         public DateTime fecha_expiracion { get; set; }
+
+        public string permisos { get; set; } = string.Empty;
     }
 }

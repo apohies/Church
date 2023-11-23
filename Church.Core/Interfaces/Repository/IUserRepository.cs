@@ -18,5 +18,7 @@ namespace Church.Core.Interfaces.Repository
         public Task<Usermongo> GetUserbiNameAndPassword(string name, string password);
 
         public  Task<InfoBasicUserDto> GetUserbyEmail(string email);
+
+        public Task<List<string>> GetPermisionByUser(string name);
     }
 }

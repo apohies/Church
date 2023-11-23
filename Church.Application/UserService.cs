@@ -40,6 +40,7 @@ namespace Church.Application
             {
                 userDto.username = user.username;
                 userDto.email = user.email;
+                userDto.permision = user.permission;
 
                 return userDto;
             }

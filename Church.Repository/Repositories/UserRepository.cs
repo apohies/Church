@@ -59,5 +59,24 @@ namespace Church.Repository.Repositories
 
             return salida;
         }
+
+        public async Task<List<string>> GetPermisionByUser(string name)
+        {
+            var projection = Builders<BsonDocument>.Projection
+            .Include("permission");
+
+            var filter = Builders<BsonDocument>.Filter.Eq("username", name);
+
+            var result = await _usersCollection.Find(filter).Project(projection).FirstOrDefaultAsync();
+
+            List<string> salida = new List<string>();
+
+            foreach (var item in result["roles"].AsBsonArray)
+            {
+                salida.Add(item.AsString);
+            }
+
+            return salida;
+        }
     }
 }

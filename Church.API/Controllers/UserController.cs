@@ -21,7 +21,7 @@ namespace Church.API.Controllers
 
       
         [HttpGet("UserMongos")]
-        //[Authorize]
+        [MyAuthorizationFilter(new[] { "Admin", "Moderador" })]
         public IActionResult Get() {
 
            return Ok(userService.GetAllMongos());
@@ -35,7 +35,7 @@ namespace Church.API.Controllers
         }
 
         [HttpGet("FindMongo/{email}")]
-        [TokenFilterAttribute]
+        [MyAuthorizationFilter(new[] { "CU-K" })]
         public async Task<IActionResult> UserbyEmail(string email)
         {
 

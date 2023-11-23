@@ -24,7 +24,7 @@ namespace Church.Security
         }
 
 
-        public string GenerateToken(string name, string user)
+        public string GenerateToken(string name, string user, List<string> permision)
         {
             //Header
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_Authenticacion.SecretKey));
@@ -35,7 +35,8 @@ namespace Church.Security
             var claims = new[]
             {
                 new Claim("Name", name),
-                new Claim("User", user)
+                new Claim("User", user),
+                new Claim("Permission", string.Join(",", permision))
 
             };
 
@@ -93,6 +94,7 @@ namespace Church.Security
                 usuario = userName,
                 fecha_creacion = dateTimeOffsetCreado.DateTime,
                 fecha_expiracion = dateTimeOffsetExpiracion.DateTime,
+                permisos = jwtToken.Claims.First(x => x.Type == "Permission").Value
 
             };
             return dataToken;

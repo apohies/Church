@@ -8,7 +8,7 @@ namespace Church.Security
 {
     public interface ICommand
     {
-        public string GenerateToken(string name, string user);
+        public string GenerateToken(string name, string user, List<string> permision);
 
         public string RefreshToken(string usuario);
 
