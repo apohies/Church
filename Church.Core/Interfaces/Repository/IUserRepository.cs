@@ -1,4 +1,5 @@
-﻿using Church.Core.Entities;
+﻿using Church.Core.Dtos.InfoUser;
+using Church.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,9 @@ namespace Church.Core.Interfaces.Repository
         public  Task<List<Usermongo>> GetAllMongos();
 
         public Task<Usermongo> GetUserbiName(string name);
+
+        public Task<Usermongo> GetUserbiNameAndPassword(string name, string password);
+
+        public  Task<InfoBasicUserDto> GetUserbyEmail(string email);
     }
 }

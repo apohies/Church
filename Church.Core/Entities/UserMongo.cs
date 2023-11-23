@@ -13,5 +13,7 @@ namespace Church.Core.Entities
         public string email { get; set; } = string.Empty;
 
         public string password { get; set; } = string.Empty;
+
+        public List<string> permission { get; set; } = new List<string>(); 
     }
 }

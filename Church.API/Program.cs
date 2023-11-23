@@ -1,10 +1,12 @@
 using Church.API;
+using Church.API.Filters;
 using Church.Application;
 using Church.Core.Interfaces.Repository;
 using Church.Core.Interfaces.Service;
 using Church.Repository.Repositories;
 using Church.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -13,12 +15,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddScoped<TokenFilterAttribute>();
+
+builder.Services.AddControllers(options => {
+
+  
+});
+
+builder.Services.AddScoped<Church.Security.ICommand, SecurityCommandHandler>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<Church.Security.ICommand, SecurityCommandHandler>();
+
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 
@@ -62,5 +71,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors(builder => builder
+          .AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 app.Run();
